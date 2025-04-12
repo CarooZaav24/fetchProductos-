@@ -1,6 +1,8 @@
 const main = document.getElementsByTagName("main").item(0);
+let mainProds = document.getElementById("mainProds");
 const modalContainer = document.getElementById("modales-container");
 const URLMain = "https://fakestoreapi.com/products/";
+const ulMenu = document.getElementById("ulMenu");
 
 // function getData(){
 //     fetch(URLMain)
@@ -20,7 +22,36 @@ const URLMain = "https://fakestoreapi.com/products/";
 //     });
 // } //getData
 ////////////////////////////////////////////////////////////////////////////////////
+// <!-- Example split danger button -->
 
+function getCategories(){
+  const options= {"method":"GET"}; 
+  fetch(URLMain+"categories/", options)
+      .then((response) => {
+          // console.log(response);
+          response.json().then((res) => {
+              console.log("categories: ",res);
+              res.forEach(cat => {
+                  ulMenu.insertAdjacentHTML("afterbegin",
+                  `<li><a class="dropdown-item" style="cursor:pointer;" onclick="getData('category/${escape(cat)}')">${cat}</a></li> `
+              )});
+          });
+      })
+      .catch((err) => {
+          main.insertAdjacentHTML("beforeend",
+              `<div class="alert alert-danger" role="alert">
+          ${err.message}
+      </div>`);
+      });
+}//getCategories
+getCategories();
+
+function createCards(prods) {
+  mainProds.innerHTML="";}
+  //tooman 20 productos y los mandes a imprimir en tu main
+  //puedo imprimir uno y despues mandar los demas y adjacentHTML
+  // for (//inicio//condicion//contador)
+  
 function getData() {
   fetch(URLMain)
     .then((response) => response.json())
@@ -73,4 +104,3 @@ function getData() {
 }
 
 getData();
-

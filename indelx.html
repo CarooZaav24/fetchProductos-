@@ -10,9 +10,23 @@
 <body>
     
     <div>
-        <h1>Productos</h1>
+        <h1 class="tituloProductos">Productos</h1>
     </div>
+    <div class="btn-group">
+        <button type="button" class="btn btn-warning">Categorías</button>
+        <button type="button" class="btn btn-warning dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-expanded="false">
+          <span class="visually-hidden">Toggle Dropdown</span>
+        </button>
+        <ul class="dropdown-menu" id= "ulMenu">
+          <li><hr class="dropdown-divider"></li>
+          <li><a class="dropdown-item" onclick="getData('')">Todas</a></li>
+
+        </ul>
+      </div>
     <main class="productosMain">
+        <div id="mainProds" class="row row-cols-1 row-cols-md-3 g-4">
+          
+          </div>
     </main>
     <div id="modales-container"></div>
     
