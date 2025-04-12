@@ -22,7 +22,7 @@ const ulMenu = document.getElementById("ulMenu");
 //     });
 // } //getData
 ////////////////////////////////////////////////////////////////////////////////////
-// <!-- Example split danger button -->
+
 
 function getCategories(){
   const options= {"method":"GET"}; 
@@ -48,9 +48,7 @@ getCategories();
 
 function createCards(prods) {
   mainProds.innerHTML="";}
-  //tooman 20 productos y los mandes a imprimir en tu main
-  //puedo imprimir uno y despues mandar los demas y adjacentHTML
-  // for (//inicio//condicion//contador)
+
   
 function getData() {
   fetch(URLMain)
