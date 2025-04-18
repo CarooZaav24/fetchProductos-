@@ -50,13 +50,15 @@ function createCards(prods) {
   mainProds.innerHTML="";}
 
   
-function getData() {
-  fetch(URLMain)
+function getData(categoria = "") {
+  fetch(URLMain+ categoria)
     .then((response) => response.json())
     .then((res) => {
+      mainProds.innerHTML = "";
+      modalContainer.innerHTML = "";
       res.forEach((producto) => {
 //Aquí está la card del producto
-        main.insertAdjacentHTML("beforeend", `
+        mainProds.insertAdjacentHTML("beforeend", `
           <div class="card m-2" style="width: 18rem;">
             <img src="${producto.image}" class="card-img-top" alt="${producto.title}">
             <div class="card-body">
